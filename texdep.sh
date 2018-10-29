@@ -2,8 +2,8 @@
 #
 # Copyright (c) 2018 Karl Otness
 #
-# This file contains texdep, an automatic dependency printer for
-# LaTeX. Texdep is distributed under the MIT license, a copy of which
+# This file contains TeXdep, an automatic dependency printer for
+# LaTeX. TeXdep is distributed under the MIT license, a copy of which
 # has been included below.
 #
 # Permission is hereby granted, free of charge, to any person
@@ -30,7 +30,7 @@ version="v0.0.1"
 
 print_usage() {
     cat <<EOF
-texdep - Automatic Makefile dependencies for LaTeX
+TeXdep - Automatic Makefile dependencies for LaTeX
 
 Usage: texdep SUBCOMMAND OPTIONS...
 
@@ -53,7 +53,7 @@ EOF
 }
 
 print_header() {
-    echo "# File produced by texdep $version ($(date))"
+    echo "# File produced by TeXdep $version ($(date))"
 }
 
 dep_scan_file() {
