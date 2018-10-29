@@ -30,7 +30,7 @@ version="v0.0.1"
 
 print_usage() {
     cat <<EOF
-TeXdep - Automatic Makefile dependencies for LaTeX
+TeXdep $version - Automatic Makefile dependencies for LaTeX
 
 Usage: texdep SUBCOMMAND OPTIONS...
 
