@@ -95,28 +95,39 @@ gather_file() {
 }
 
 if [[ "$#" -lt 1 ]]; then
+    # No arguments, print usage
     print_usage
     exit 1
-elif [[ "$1" == "dep" ]]; then
-    if [[ "$#" -ne 2 ]]; then
-        print_usage
-        exit 2
-    elif [[ ! -r "$2" ]]; then
-        echo "File '$2' not readable"
-        exit 3
-    fi
-    dep_scan_file "$2"
-elif [[ "$1" == "gather" ]]; then
-    if [[ "$#" -lt 3 ]]; then
-        print_usage
-        exit 2
-    elif [[ ! -r "$3" ]]; then
-        echo "File '$3' not readable"
-        exit 3
-    fi
-    suffix=".texdep"
-    if [[ $# -gt 3 ]]; then
-        suffix="$4"
-    fi
-    gather_file "$2" "$3" "$suffix"
 fi
+case "$1" in
+    -h|--help)
+        print_usage
+        exit 0
+        ;;
+    "dep")
+        # Dependency subcommand
+        if [[ "$#" -ne 2 ]]; then
+            print_usage
+            exit 1
+        elif [[ ! -r "$2" ]]; then
+            echo "File '$2' not readable"
+            exit 3
+        fi
+        dep_scan_file "$2"
+        ;;
+    "gather")
+        # Gather subcommand
+        if [[ "$#" -lt 3 ]]; then
+            print_usage
+            exit 2
+        elif [[ ! -r "$3" ]]; then
+            echo "File '$3' not readable"
+            exit 3
+        fi
+        suffix=".texdep"
+        if [[ $# -gt 3 ]]; then
+            suffix="$4"
+        fi
+        gather_file "$2" "$3" "$suffix"
+        ;;
+esac
