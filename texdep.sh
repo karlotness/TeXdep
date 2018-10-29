@@ -70,7 +70,7 @@ rec_gather_file() {
     suffix="$2"
     if [[ ! -r "$file" ]]; then
        echo "# ERROR: File '$file' not readable"
-       exit 4
+       exit 2
     fi
     while read -r line; do
         if [[ "$line" =~ ^# ]]; then
@@ -111,7 +111,7 @@ case "$1" in
             exit 1
         elif [[ ! -r "$2" ]]; then
             echo "File '$2' not readable"
-            exit 3
+            exit 2
         fi
         dep_scan_file "$2"
         ;;
@@ -119,10 +119,10 @@ case "$1" in
         # Gather subcommand
         if [[ "$#" -lt 3 ]]; then
             print_usage
-            exit 2
+            exit 1
         elif [[ ! -r "$3" ]]; then
             echo "File '$3' not readable"
-            exit 3
+            exit 2
         fi
         suffix=".texdep"
         if [[ $# -gt 3 ]]; then
