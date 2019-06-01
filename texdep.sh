@@ -26,7 +26,7 @@
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-version="v0.0.1"
+version="v0.0.2"
 
 print_usage() {
     cat <<EOF
