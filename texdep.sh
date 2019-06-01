@@ -63,6 +63,8 @@ dep_scan_file() {
     sed -n 's/^.*\\\(input\|include\){\([^{}]*\)}.*$/\2/p' "$file"
     # Find includegraphics macros
     sed -n 's/^.*\\\(includegraphics\)\(\[.*\]\)*{\([^{}]*\)}.*$/\3/p' "$file"
+    # Find addbibresource macros
+    sed -n 's/^.*\\\(addbibresource\)\(\[.*\]\)*{\([^{}]*\)}.*$/\3/p' "$file"
 }
 
 rec_gather_file() {
