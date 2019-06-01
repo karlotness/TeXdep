@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 #
-# Copyright (c) 2018 Karl Otness
+# Copyright (c) 2019 Karl Otness
 #
 # This file contains TeXdep, an automatic dependency printer for
 # LaTeX. TeXdep is distributed under the MIT license, a copy of which
