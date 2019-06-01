@@ -78,7 +78,7 @@ rec_gather_file() {
         fi
         echo "  $line \\"
         if [[ "$line" =~ ^(.*)\.tex$ ]]; then
-            rec_gather_file "${BASH_REMATCH[1]}$suffix"
+            rec_gather_file "${BASH_REMATCH[1]}$suffix" "$suffix"
         fi
     done < "$file"
 }
